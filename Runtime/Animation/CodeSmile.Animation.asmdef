@@ -1,6 +1,6 @@
 {
     "name": "CodeSmile.Animation",
-    "rootNamespace": "CodeSmile",
+    "rootNamespace": "CodeSmile.Animation",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,6 +1,6 @@
 {
     "name": "CodeSmile.Components.Registry",
-    "rootNamespace": "CodeSmile",
+    "rootNamespace": "CodeSmile.Components.Registry",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

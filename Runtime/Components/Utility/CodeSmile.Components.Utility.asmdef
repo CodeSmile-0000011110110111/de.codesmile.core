@@ -1,6 +1,6 @@
 {
     "name": "CodeSmile.Components.Utility",
-    "rootNamespace": "CodeSmile",
+    "rootNamespace": "CodeSmile.Components.Utility",
     "references": [
         "GUID:38cc5939e6694a64d8d6ea3aaca03495",
         "GUID:8b08bc580efd4d64b8b270f734077090",
