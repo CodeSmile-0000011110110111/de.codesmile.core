@@ -1,0 +1,19 @@
+{
+  "name": "de.codesmile.core",
+  "displayName": "CodeSmile Core",
+  "description": "CodeSmile code library for all projects.",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "unityRelease": "10f1",
+  "author": {
+    "name": "Steffen Itterheim aka 'CodeSmile' (Unity MVP, Self-Employed)",
+    "email": "steffen@steffenitterheim.de",
+    "url": "https://github.com/CodeSmile-0000011110110111/de.codesmile.core"
+  },
+  "changelogUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.core/tree/main/CHANGELOG.md",
+  "documentationUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.core/tree/main/README.md",
+  "licensesUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.core/tree/main/LICENSE",
+  "dependencies": {
+  },
+  "relatedPackages": {}
+}

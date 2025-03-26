@@ -1,0 +1,14 @@
+﻿{
+  "name": "CodeSmile.System.Extensions",
+  "rootNamespace": "CodeSmile",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

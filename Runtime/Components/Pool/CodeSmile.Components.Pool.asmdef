@@ -1,0 +1,17 @@
+{
+    "name": "CodeSmile.Components.Pool",
+    "rootNamespace": "CodeSmile",
+    "references": [
+        "GUID:07ebc0f688f92a7489e70661f7aae2c3",
+        "GUID:8c146a5cfeef51e4bac2d7ef674a178d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

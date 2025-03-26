@@ -1,0 +1,17 @@
+{
+    "name": "CodeSmile.Utility",
+    "rootNamespace": "CodeSmile",
+    "references": [
+        "GUID:38cc5939e6694a64d8d6ea3aaca03495",
+        "GUID:9bdd643c094a56449aee3dc40a4f62a0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
