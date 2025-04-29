@@ -32,17 +32,7 @@ namespace CodeSmile.Utility
 		}
 
 		[InitializeOnLoadMethod]
-		private static void OnLoad()
-		{
-			Activate();
-
-#if UNITY_EDITOR
-			AssemblyReloadEvents.beforeAssemblyReload -= OnBeforeAssemblyReload;
-			AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyReload;
-#endif
-		}
-
-		private static void OnBeforeAssemblyReload() => Deactivate();
+		private static void OnLoad() => Activate();
 
 		private class DebugLogWriter : TextWriter
 		{
@@ -75,6 +65,9 @@ namespace CodeSmile.Utility
 				lock (m_StringBuilder)
 				{
 					m_StringBuilder.Insert(0, "> ");
+					if (m_StringBuilder.Length > 0)
+						m_StringBuilder.Length--; // ignore newline, Debug.Log adds its own
+
 					message = m_StringBuilder.ToString();
 					m_StringBuilder.Clear();
 				}
