@@ -184,10 +184,8 @@ namespace CodeSmile.Components.Utility
 				LogMethod("OnWillRenderObject");
 		}
 
-		private String GetLog(GameObject go, Boolean logParent = false)
-		{
-			return go == null ? "(null)" : logParent ? GetLog(go.transform.parent?.gameObject) : $"{go.name} ({go.GetInstanceID()})";
-		}
+		private String GetLog(GameObject go, Boolean logParent = false) => go == null ? "(null)" :
+			logParent ? GetLog(go.transform.parent?.gameObject) : $"{go.name} ({go.GetInstanceID()})";
 
 		private void LogMethod(String methodName) =>
 			Debug.Log($"Frame [{Time.frameCount}]: {methodName} on {GetLog(gameObject)}, parent = {GetLog(gameObject, true)}");

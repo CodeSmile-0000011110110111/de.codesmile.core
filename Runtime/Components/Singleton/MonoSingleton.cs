@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2021-2024 Steffen Itterheim
+﻿// Copyright (C) 2021-2025 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
 using System;
@@ -43,13 +43,6 @@ namespace CodeSmile.Components.Singleton
 	{
 		private static T s_Instance;
 		private static Boolean s_IsInstanceAssigned;
-		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-		static void ResetStaticFields()
-		{
-			Debug.Log("ResetStaticFields MS");
-			s_Instance = null;
-			s_IsInstanceAssigned = false;
-		}
 
 		/// <summary>
 		///     Access the Singleton instance.
@@ -90,6 +83,14 @@ namespace CodeSmile.Components.Singleton
 
 			s_Instance = instance;
 			s_IsInstanceAssigned = true;
+		}
+
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		private static void ResetStaticFields()
+		{
+			Debug.Log("ResetStaticFields MS");
+			s_Instance = null;
+			s_IsInstanceAssigned = false;
 		}
 
 		private static T AutoCreateInstance() =>
