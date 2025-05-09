@@ -9,7 +9,7 @@ namespace CodeSmile.Extensions.UnityEngine
 	public static class ColliderExt
 	{
 		public static T GetOrAddComponent<T>(this Collider collider) where T : Component =>
-			collider.TryGetComponent(out T result) ? result : collider.gameObject.AddComponent<T>();
+			collider.gameObject.GetOrAddComponent<T>();
 
 		public static T AddComponent<T>(this Collider collider) where T : Component => collider.gameObject.AddComponent<T>();
 	}

@@ -9,16 +9,38 @@ namespace CodeSmile.Extensions.UnityEngine
 {
 	public static class GameObjectExt
 	{
-		public static T GetOrAddComponent<T>(this GameObject go) where T : Component =>
-			go.TryGetComponent(out T result) ? result : go.AddComponent<T>();
-
-		public static Component GetOrAddComponent(this GameObject go, Type componentType) =>
-			go.TryGetComponent(componentType, out var result) ? result : go.AddComponent(componentType);
-
-		public static void TryAddComponent<T>(this GameObject gameObject) where T : Component
+		public static T GetOrAddComponent<T>(this GameObject go) where T : Component
 		{
-			if (gameObject.TryGetComponent(out T _) == false)
-				gameObject.AddComponent<T>();
+			T component;
+#if UNITY_EDITOR
+			if (PrefabUtility.IsPartOfPrefabAsset(go))
+			{
+				go.TryGetComponent(out component);
+				if (component == null)
+					Debug.LogWarning($"won't add component {typeof(T)} because this is a prefab: {go}");
+
+				return component;
+			}
+#endif
+
+			return go.TryGetComponent(out component) ? component : go.AddComponent<T>();
+		}
+
+		public static Component GetOrAddComponent(this GameObject go, Type componentType)
+		{
+			Component component;
+#if UNITY_EDITOR
+			if (PrefabUtility.IsPartOfPrefabAsset(go))
+			{
+				go.TryGetComponent(componentType, out component);
+				if (component == null)
+					Debug.LogWarning($"can't add missing component {componentType} to prefab: {go}");
+
+				return component;
+			}
+#endif
+
+			return go.TryGetComponent(componentType, out component) ? component : go.AddComponent(componentType);
 		}
 
 		public static void DestroyAllChildren(this GameObject go) => go.transform.DestroyAllChildren();
