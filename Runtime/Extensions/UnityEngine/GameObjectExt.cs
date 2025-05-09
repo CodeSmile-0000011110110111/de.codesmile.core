@@ -17,7 +17,7 @@ namespace CodeSmile.Extensions.UnityEngine
 			{
 				go.TryGetComponent(out component);
 				if (component == null)
-					Debug.LogWarning($"won't add component {typeof(T)} because this is a prefab: {go}");
+					Debug.LogWarning($"won't add component {typeof(T)} because this is a prefab: {go} (Editor-only warning)");
 
 				return component;
 			}
