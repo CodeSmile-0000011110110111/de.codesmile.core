@@ -49,8 +49,6 @@ namespace CodeSmileEditor.Core
 			if (so is not IEditorEventReceiver)
 				throw new ArgumentException($"{so} does not implement one of the EditorEventDispatcher interfaces");
 
-			Debug.Log($"EditorEventDispatcher.AddReceiver({so.name})");
-
 			var updateReceivers = instance.m_UpdateReceivers;
 			if (so is IEditorUpdateReceiver)
 			{
