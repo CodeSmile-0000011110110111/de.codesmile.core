@@ -32,8 +32,8 @@ namespace CodeSmileEditor.Core
 	{
 		private const Boolean SaveAsText = true;
 
-		[SerializeField] private List<ScriptableObject> s_UpdateReceivers = new();
-		[SerializeField] private List<ScriptableObject> s_PlayModeReceivers = new();
+		[SerializeField] private List<ScriptableObject> m_UpdateReceivers = new();
+		[SerializeField] private List<ScriptableObject> m_PlayModeReceivers = new();
 
 		/// <summary>
 		/// Adds a ScriptableObject to reveice the event(s) defined by one of the IEditorEventReceiver interfaces.
@@ -51,7 +51,7 @@ namespace CodeSmileEditor.Core
 
 			Debug.Log($"EditorEventDispatcher.AddReceiver({so.name})");
 
-			var updateReceivers = instance.s_UpdateReceivers;
+			var updateReceivers = instance.m_UpdateReceivers;
 			if (so is IEditorUpdateReceiver)
 			{
 				updateReceivers.Add(so);
@@ -59,7 +59,7 @@ namespace CodeSmileEditor.Core
 					EditorApplication.update += OnEditorUpdate;
 			}
 
-			var playModeReceivers = instance.s_PlayModeReceivers;
+			var playModeReceivers = instance.m_PlayModeReceivers;
 			if (so is IPlayModeStateChangeReceiver)
 			{
 				playModeReceivers.Add(so);
@@ -74,40 +74,33 @@ namespace CodeSmileEditor.Core
 		/// <param name="so"></param>
 		public static void RemoveReceiver(ScriptableObject so)
 		{
-			var updateReceivers = instance.s_UpdateReceivers;
+			var updateReceivers = instance.m_UpdateReceivers;
 			if (so is IEditorUpdateReceiver)
-			{
-				if (updateReceivers.Remove(so) && updateReceivers.Count == 0)
-					EditorApplication.update -= OnEditorUpdate;
-			}
+				updateReceivers.Remove(so);
 
-			var playModeReceivers = instance.s_PlayModeReceivers;
-			if (so is IPlayModeStateChangeReceiver playModeReceiver)
-			{
-				if (playModeReceivers.Remove(so) && playModeReceivers.Count == 0)
-					EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
-			}
+			var playModeReceivers = instance.m_PlayModeReceivers;
+			if (so is IPlayModeStateChangeReceiver)
+				playModeReceivers.Remove(so);
 		}
 
 		[InitializeOnLoadMethod]
 		private static void InitOnLoad()
 		{
-			Debug.LogWarning($"EditorEventDispatcher.InitOnLoad() => playmode receivers: {instance.s_PlayModeReceivers.Count}");
-
 			// re-register events after domain reload
-			if (instance.s_UpdateReceivers.Count >= 1)
+
+			if (instance.m_UpdateReceivers.Count > 0)
 				EditorApplication.update += OnEditorUpdate;
-			if (instance.s_PlayModeReceivers.Count >= 1)
+
+			if (instance.m_PlayModeReceivers.Count > 0)
 				EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
 		}
 
 		private static void OnEditorUpdate()
 		{
-			var updateReceivers = instance.s_UpdateReceivers;
+			var updateReceivers = instance.m_UpdateReceivers;
 			for (var i = updateReceivers.Count - 1; i >= 0; i--)
 			{
-				var updateReceiver = updateReceivers[i] as IEditorUpdateReceiver;
-				if (updateReceiver != null)
+				if (updateReceivers[i] is IEditorUpdateReceiver updateReceiver)
 					updateReceiver.OnEditorUpdate();
 				else
 					updateReceivers.RemoveAt(i);
@@ -116,12 +109,11 @@ namespace CodeSmileEditor.Core
 
 		private static void OnPlayModeStateChanged(PlayModeStateChange state)
 		{
-			var playModeReceivers = instance.s_PlayModeReceivers;
+			var playModeReceivers = instance.m_PlayModeReceivers;
 			for (var i = playModeReceivers.Count - 1; i >= 0; i--)
 			{
-				var playModeStateChangeReceiver = playModeReceivers[i] as IPlayModeStateChangeReceiver;
-				if (playModeStateChangeReceiver != null)
-					playModeStateChangeReceiver.OnPlayModeStateChanged(state);
+				if (playModeReceivers[i] is IPlayModeStateChangeReceiver playModeReceiver)
+					playModeReceiver.OnPlayModeStateChanged(state);
 				else
 					playModeReceivers.RemoveAt(i);
 			}
