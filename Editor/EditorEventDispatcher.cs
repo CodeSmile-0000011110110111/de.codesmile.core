@@ -30,8 +30,6 @@ namespace CodeSmileEditor.Core
 	/// </remarks>
 	public sealed class EditorEventDispatcher : ScriptableSingleton<EditorEventDispatcher>
 	{
-		private const Boolean SaveAsText = true;
-
 		[SerializeField] private List<ScriptableObject> m_UpdateReceivers = new();
 		[SerializeField] private List<ScriptableObject> m_PlayModeReceivers = new();
 
