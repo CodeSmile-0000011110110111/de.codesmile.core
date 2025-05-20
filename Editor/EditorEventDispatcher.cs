@@ -10,9 +10,9 @@ namespace CodeSmileEditor.Core
 {
 	public interface IEditorEventReceiver {}
 
-	public interface IEditorUpdateReceiver : IEditorEventReceiver
+	public interface IInitializeOnLoadReceiver : IEditorEventReceiver
 	{
-		void OnEditorUpdate();
+		void OnLoad();
 	}
 
 	public interface IPlayModeStateChangeReceiver : IEditorEventReceiver
@@ -30,7 +30,7 @@ namespace CodeSmileEditor.Core
 	/// </remarks>
 	public sealed class EditorEventDispatcher : ScriptableSingleton<EditorEventDispatcher>
 	{
-		[SerializeField] private List<ScriptableObject> m_UpdateReceivers = new();
+		[SerializeField] private List<ScriptableObject> m_OnLoadReceivers = new();
 		[SerializeField] private List<ScriptableObject> m_PlayModeReceivers = new();
 
 		/// <summary>
@@ -47,12 +47,12 @@ namespace CodeSmileEditor.Core
 			if (so is not IEditorEventReceiver)
 				throw new ArgumentException($"{so} does not implement one of the EditorEventDispatcher interfaces");
 
-			var updateReceivers = instance.m_UpdateReceivers;
-			if (so is IEditorUpdateReceiver)
+			var onLoadReceivers = instance.m_OnLoadReceivers;
+			if (so is IInitializeOnLoadReceiver)
 			{
-				updateReceivers.Add(so);
-				if (updateReceivers.Count == 1)
-					EditorApplication.update += OnEditorUpdate;
+				onLoadReceivers.Add(so);
+				if (onLoadReceivers.Count == 1)
+					EditorApplication.update += OnLoad;
 			}
 
 			var playModeReceivers = instance.m_PlayModeReceivers;
@@ -70,9 +70,9 @@ namespace CodeSmileEditor.Core
 		/// <param name="so"></param>
 		public static void RemoveReceiver(ScriptableObject so)
 		{
-			var updateReceivers = instance.m_UpdateReceivers;
-			if (so is IEditorUpdateReceiver)
-				updateReceivers.Remove(so);
+			var onLoadReceivers = instance.m_OnLoadReceivers;
+			if (so is IInitializeOnLoadReceiver)
+				onLoadReceivers.Remove(so);
 
 			var playModeReceivers = instance.m_PlayModeReceivers;
 			if (so is IPlayModeStateChangeReceiver)
@@ -84,22 +84,20 @@ namespace CodeSmileEditor.Core
 		{
 			// re-register events after domain reload
 
-			if (instance.m_UpdateReceivers.Count > 0)
-				EditorApplication.update += OnEditorUpdate;
-
 			if (instance.m_PlayModeReceivers.Count > 0)
 				EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
 		}
 
-		private static void OnEditorUpdate()
+		[InitializeOnLoadMethod]
+		private static void OnLoad()
 		{
-			var updateReceivers = instance.m_UpdateReceivers;
-			for (var i = updateReceivers.Count - 1; i >= 0; i--)
+			var onLoadReceivers = instance.m_OnLoadReceivers;
+			for (var i = onLoadReceivers.Count - 1; i >= 0; i--)
 			{
-				if (updateReceivers[i] is IEditorUpdateReceiver updateReceiver)
-					updateReceiver.OnEditorUpdate();
+				if (onLoadReceivers[i] is IInitializeOnLoadReceiver receiver)
+					receiver.OnLoad();
 				else
-					updateReceivers.RemoveAt(i);
+					onLoadReceivers.RemoveAt(i);
 			}
 		}
 
