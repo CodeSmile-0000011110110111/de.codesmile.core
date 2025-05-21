@@ -24,7 +24,7 @@ namespace CodeSmile.Utility
 	/// </remarks>
 	public static class CaptureStandardOutput
 	{
-		private const string LogPrefix = "> ";
+		private const String LogPrefix = "> ";
 		private static TextWriter m_StdOutWriter;
 
 		public static void Activate()
@@ -43,7 +43,6 @@ namespace CodeSmile.Utility
 			{
 				Console.SetOut(m_StdOutWriter);
 				m_StdOutWriter = null;
-				//Debug.Log("StdOut capture disabled.");
 			}
 		}
 
@@ -114,15 +113,18 @@ namespace CodeSmile.Utility
 		[InitializeOnLoadMethod]
 		private static void Init()
 		{
-			if (Enabled) Activate();
-			else Deactivate();
+			EditorApplication.delayCall += () =>
+			{
+				if (Enabled) Activate();
+				else Deactivate();
 
-			CompilationPipeline.compilationStarted -= OnCompilationStarted;
-			CompilationPipeline.compilationStarted += OnCompilationStarted;
+				CompilationPipeline.compilationStarted -= OnCompilationStarted;
+				CompilationPipeline.compilationStarted += OnCompilationStarted;
+			};
+
+			// deactivate during compilation because compilers might generate a lot of noise
+			static void OnCompilationStarted(Object context) => Deactivate();
 		}
-
-		// deactivate during compilation because compilers might generate a lot of noise
-		private static void OnCompilationStarted(Object context) => Deactivate();
 #endif
 	}
 }
