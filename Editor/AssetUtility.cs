@@ -15,8 +15,9 @@ namespace CodeSmileEditor.Core
 		private static Assembly[] s_Assemblies;
 		private static readonly Int32 s_DllStringLength = ".dll".Length;
 
+		public static Boolean IsLuaScript(String assetPath) => Path.GetExtension(assetPath) == ".lua";
 		public static Boolean IsEditorPath(String assetPath) => assetPath.ToLower().Contains("/editor/");
-
+		public static Boolean IsModdingPath(String assetPath) => assetPath.ToLower().Contains("/modding/");
 		public static Boolean IsEditorAssembly(String assetPath)
 		{
 			var assemblyName = CompilationPipeline.GetAssemblyNameFromScriptPath(assetPath);
