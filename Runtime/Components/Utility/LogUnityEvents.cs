@@ -15,43 +15,54 @@ namespace CodeSmile.Components
 		private void Awake() => LogMethod("Awake");
 		private void Reset() => LogMethod("Reset");
 		private void Start() => LogMethod("Start");
+
 		private void Update()
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod("Update");
 		}
+
 		private void FixedUpdate()
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod("FixedUpdate");
 		}
+
 		private void LateUpdate()
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod("LateUpdate");
 		}
+
 		private void OnEnable() => LogMethod("OnEnable");
 		private void OnDisable() => LogMethod("OnDisable");
 		private void OnDestroy() => LogMethod("OnDestroy");
+
 		private void OnGUI()
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod($"OnGUI ({Event.current.type})");
 		}
+
 		private void OnAnimatorIK(Int32 layerIndex)
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod("OnAnimatorIK");
 		}
+
 		private void OnAnimatorMove()
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod("OnAnimatorMove");
 		}
+
 		private void OnApplicationFocus(Boolean hasFocus) => LogMethod($"OnApplicationFocus: {hasFocus}");
 		private void OnApplicationPause(Boolean pauseStatus) => LogMethod("OnApplicationPause: {pauseStatus}");
 		private void OnApplicationQuit() => LogMethod("OnApplicationQuit");
-		private void OnAudioFilterRead(Single[] data, Int32 channels) => LogMethod($"OnAudioFilterRead: {data} ({data?.Length}), channels: {channels})");
+
+		private void OnAudioFilterRead(Single[] data, Int32 channels) =>
+			LogMethod($"OnAudioFilterRead: {data} ({data?.Length}), channels: {channels})");
+
 		private void OnBecameInvisible() => LogMethod("OnBecameInvisible");
 		private void OnBecameVisible() => LogMethod("OnBecameVisible");
 		private void OnBeforeTransformParentChanged() => LogMethod("OnBeforeTransformParentChanged");
@@ -66,16 +77,19 @@ namespace CodeSmile.Components
 		private void OnConnectedToServer() => LogMethod("OnConnectedToServer");
 		private void OnControllerColliderHit(ControllerColliderHit hit) => LogMethod($"OnControllerColliderHit: {hit}");
 		private void OnDidApplyAnimationProperties() => LogMethod("OnDidApplyAnimationProperties");
+
 		private void OnDrawGizmos()
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod("OnDrawGizmos");
 		}
+
 		private void OnDrawGizmosSelected()
 		{
 			if (m_LogRepeatingEvents)
 				LogMethod("OnDrawGizmosSelected");
 		}
+
 		private void OnJointBreak(Single breakForce) => LogMethod($"OnJointBreak: {breakForce}");
 		private void OnJointBreak2D(Joint2D brokenJoint) => LogMethod($"OnJointBreak2D: {brokenJoint}");
 		private void OnMouseDown() => LogMethod("OnMouseDown");
@@ -89,6 +103,7 @@ namespace CodeSmile.Components
 		private void OnParticleSystemStopped() => LogMethod("OnParticleSystemStopped");
 		private void OnParticleTrigger() => LogMethod("OnParticleTrigger");
 		private void OnParticleUpdateJobScheduled() => LogMethod("OnParticleUpdateJobScheduled");
+
 		private void OnPostRender()
 		{
 			if (m_LogRepeatingEvents)
@@ -108,7 +123,10 @@ namespace CodeSmile.Components
 		}
 
 		private void OnRectTransformDimensionsChange() => LogMethod("OnRectTransformDimensionsChange");
-		private void OnRenderImage(RenderTexture source, RenderTexture destination) => LogMethod($"OnRenderImage: {source}, {destination}");
+
+		private void OnRenderImage(RenderTexture source, RenderTexture destination) =>
+			LogMethod($"OnRenderImage: {source}, {destination}");
+
 		private void OnRenderObject() => LogMethod("OnRenderObject");
 		private void OnServerInitialized() => LogMethod("OnServerInitialized");
 		private void OnTransformChildrenChanged() => LogMethod("OnTransformChildrenChanged");
@@ -120,6 +138,7 @@ namespace CodeSmile.Components
 		private void OnTriggerStay(Collider other) => LogMethod($"OnTriggerStay: {other}");
 		private void OnTriggerStay2D(Collider2D other) => LogMethod($"OnTriggerStay2D: {other}");
 		private void OnValidate() => LogMethod("OnValidate");
+
 		private void OnWillRenderObject()
 		{
 			if (m_LogRepeatingEvents)
