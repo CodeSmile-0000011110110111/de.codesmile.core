@@ -19,5 +19,12 @@ namespace CodeSmile.Utility
 				AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(asset));
 #endif
 		}
+		public static void Import(string assetPath)
+		{
+#if UNITY_EDITOR
+			if (assetPath != null)
+				AssetDatabase.ImportAsset(assetPath);
+#endif
+		}
 	}
 }
