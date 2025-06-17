@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Utility
+namespace CodeSmile
 {
 	public static class EditorAssetUtility
 	{

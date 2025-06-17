@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Utility.Active
+namespace CodeSmile.Components
 {
 	/// <summary>
 	///     Always destroys this object. Use for information-only objects, eg dividers or notes.

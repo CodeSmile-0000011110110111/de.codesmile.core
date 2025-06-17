@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Utility.Disable
+namespace CodeSmile.Components
 {
 	[DisallowMultipleComponent]
 	internal sealed class DisableOnTimeout : MonoBehaviour

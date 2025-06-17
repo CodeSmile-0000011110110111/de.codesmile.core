@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Extensions.System
+namespace CodeSmile
 {
 	public static class StringExt
 	{

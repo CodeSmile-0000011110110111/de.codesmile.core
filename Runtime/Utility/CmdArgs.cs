@@ -8,7 +8,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Utility
+namespace CodeSmile
 {
 	/// <summary>
 	///     Parses command line arguments.

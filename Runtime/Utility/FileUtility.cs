@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Utility
+namespace CodeSmile
 {
 	public static class FileUtility
 	{

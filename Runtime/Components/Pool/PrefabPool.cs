@@ -2,14 +2,13 @@
 // Refer to included LICENSE file for terms and conditions.
 
 using CodeSmile.Collections;
-using CodeSmile.Components.Registry;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Pool
+namespace CodeSmile.Components
 {
 	[DisallowMultipleComponent]
 	public sealed class PrefabPool : MonoBehaviour

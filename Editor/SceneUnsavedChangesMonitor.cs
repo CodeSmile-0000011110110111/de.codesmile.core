@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace CodeSmileEditor.Editor
+namespace CodeSmileEditor
 {
 	public class SceneUnsavedChangesMonitor : EditorWindow
 	{

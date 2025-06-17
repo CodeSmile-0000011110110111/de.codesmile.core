@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Utility.Destroy
+namespace CodeSmile.Components
 {
 	[RequireComponent(typeof(ParticleSystem))]
 	internal sealed class DestroyParticleSystemAfterDuration : MonoBehaviour

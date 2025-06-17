@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = System.Object;
 
-namespace CodeSmile.Components.Registry
+namespace CodeSmile.Components
 {
 	/// <summary>
 	///     Keeps references to components by type to avoid making each individual type a singleton of its own.

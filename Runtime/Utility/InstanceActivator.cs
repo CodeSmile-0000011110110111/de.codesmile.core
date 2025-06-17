@@ -1,13 +1,12 @@
 ﻿// Copyright (C) 2021-2025 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
-using CodeSmile.Extensions.UnityEngine;
 using System;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CodeSmile.Utility
+namespace CodeSmile
 {
 	/// <summary>
 	///     Takes care of instantiating child objects and ensures at most one of them is active at any given time.

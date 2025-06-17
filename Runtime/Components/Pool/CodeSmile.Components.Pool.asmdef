@@ -1,6 +1,6 @@
 ﻿{
     "name": "CodeSmile.Components.Pool",
-    "rootNamespace": "CodeSmile.Components.Pool",
+    "rootNamespace": "CodeSmile.Components",
     "references": [
         "GUID:07ebc0f688f92a7489e70661f7aae2c3",
         "GUID:8c146a5cfeef51e4bac2d7ef674a178d"

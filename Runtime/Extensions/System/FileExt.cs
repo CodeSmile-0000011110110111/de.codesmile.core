@@ -6,7 +6,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Extensions.System
+namespace CodeSmile
 {
 	public static class FileExt
 	{

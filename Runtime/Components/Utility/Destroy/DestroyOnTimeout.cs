@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Utility.Destroy
+namespace CodeSmile.Components
 {
 	[DisallowMultipleComponent]
 	internal sealed class DestroyOnTimeout : MonoBehaviour

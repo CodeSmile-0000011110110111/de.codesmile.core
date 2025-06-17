@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using Object = UnityEngine.Object;
 
-namespace CodeSmile.Components.Pool
+namespace CodeSmile.Components
 {
 	public sealed class PrefabInstancePool
 	{

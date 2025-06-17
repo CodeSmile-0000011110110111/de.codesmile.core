@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Registry
+namespace CodeSmile.Components
 {
 	/// <summary>
 	///     Will add the listed components to the ComponentsRegistry. CAUTION: Component types must be unique!

@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Utility.Editor
+namespace CodeSmile.Components
 {
 	/// <summary>
 	///     Pings (expands and highlights) the selected object.

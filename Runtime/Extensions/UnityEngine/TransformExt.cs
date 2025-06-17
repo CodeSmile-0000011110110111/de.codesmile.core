@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CodeSmile.Extensions.UnityEngine
+namespace CodeSmile
 {
 	/// <summary>
 	///     UnityEngine.Transform extension methods

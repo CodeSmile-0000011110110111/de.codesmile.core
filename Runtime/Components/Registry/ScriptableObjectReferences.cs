@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Registry
+namespace CodeSmile.Components
 {
 	/// <summary>
 	///     Will add the listed ScriptableObjects to the ScriptableObjectsRegistry. CAUTION: ScriptableObject types must be

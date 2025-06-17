@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components.Utility.Destroy
+namespace CodeSmile.Components
 {
 	/// <summary>
 	///     Destroys the object if running outside the editor in a release (non-Debug, non-Development) build.

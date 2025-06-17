@@ -1,17 +1,14 @@
 ﻿// Copyright (C) 2021-2025 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
-using CodeSmile.Utility;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-#if UNITY_EDITOR
-using UnityEditor.SceneManagement;
-#endif
 
-namespace CodeSmile.Components.Utility
+namespace CodeSmile.Components
 {
 	[DisallowMultipleComponent]
 	public sealed class ShowHiddenGameObjectsInScene : MonoBehaviour

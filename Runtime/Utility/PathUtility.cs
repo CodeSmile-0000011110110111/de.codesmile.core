@@ -1,13 +1,12 @@
 ﻿// Copyright (C) 2021-2025 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
-using CodeSmile.Extensions.System;
 using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Utility
+namespace CodeSmile
 {
 	public static class PathUtility
 	{

@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmileEditor.Editor
+namespace CodeSmileEditor
 {
 	/// <summary>
 	///     If Preferences => Asset Pipeline => Auto Refresh is disabled, will call AssetDatabase.Refresh() before
