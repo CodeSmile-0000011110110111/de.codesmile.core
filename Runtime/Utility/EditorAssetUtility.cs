@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace CodeSmile.Utility
 {
-	public class RuntimeAssetUtility
+	public static class EditorAssetUtility
 	{
 		/// <summary>
 		/// Editor-only: Imports the asset, ie to pick up latest changes without forcing an entire Refresh().
