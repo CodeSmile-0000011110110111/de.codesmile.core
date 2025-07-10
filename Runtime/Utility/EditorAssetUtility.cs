@@ -46,7 +46,7 @@ namespace CodeSmile
 				if (assemblyName != null)
 					assembly = Assembly.Load(Path.GetFileNameWithoutExtension(assemblyName));
 			}
-			catch (Exception e) {}
+			catch (Exception) {} // suppress errors
 #endif
 
 			return assembly;
