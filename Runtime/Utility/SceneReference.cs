@@ -157,6 +157,8 @@ namespace CodeSmile
 
 		internal class PostProcessor : AssetPostprocessor
 		{
+			internal static event Action OnSceneAssetChanged;
+
 			[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
 			private static void ResetStaticFields() => OnSceneAssetChanged = null;
 
@@ -182,8 +184,6 @@ namespace CodeSmile
 					}
 				}
 			}
-
-			internal static event Action OnSceneAssetChanged;
 		}
 #endif
 	}

@@ -5,7 +5,6 @@
 using UnityEditor;
 using UnityEditor.Compilation;
 #endif
-
 using System;
 using System.IO;
 using UnityEngine;

@@ -7,7 +7,6 @@ using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
 using CompilationAssembly = UnityEditor.Compilation.Assembly;
-using SystemAssembly = System.Reflection.Assembly;
 using Object = UnityEngine.Object;
 
 namespace CodeSmileEditor
@@ -71,7 +70,6 @@ namespace CodeSmileEditor
 			if (asset != null)
 				AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(asset));
 		}
-
 
 		[InitializeOnLoadMethod]
 		private static void OnLoad() => s_Assemblies = CompilationPipeline.GetAssemblies();
