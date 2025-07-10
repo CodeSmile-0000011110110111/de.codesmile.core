@@ -11,12 +11,12 @@ namespace CodeSmileEditor.Core
 {
 	public static class EditorIO
 	{
-		public static void TryCreateDirectory(String assetPath)
+		public static void TryCreateAndImportPath(String assetPath)
 		{
-			var generatedFullPath = Path.GetFullPath($"{Application.dataPath}/../{assetPath}");
-			if (!Directory.Exists(generatedFullPath))
+			var fullPath = Path.GetFullPath($"{Application.dataPath}/../{assetPath}");
+			if (Directory.Exists(fullPath) == false)
 			{
-				Directory.CreateDirectory(generatedFullPath);
+				Directory.CreateDirectory(fullPath);
 				AssetDatabase.ImportAsset(assetPath);
 			}
 		}
