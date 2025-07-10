@@ -6,13 +6,15 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
+using CompilationAssembly = UnityEditor.Compilation.Assembly;
+using SystemAssembly = System.Reflection.Assembly;
 using Object = UnityEngine.Object;
 
-namespace CodeSmileEditor.Core
+namespace CodeSmileEditor
 {
-	public static class AssetUtility
+	public static class EditorAssetUtility
 	{
-		private static Assembly[] s_Assemblies;
+		private static CompilationAssembly[] s_Assemblies;
 		private static readonly Int32 s_DllStringLength = ".dll".Length;
 
 		/// <summary>
@@ -69,6 +71,7 @@ namespace CodeSmileEditor.Core
 			if (asset != null)
 				AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(asset));
 		}
+
 
 		[InitializeOnLoadMethod]
 		private static void OnLoad() => s_Assemblies = CompilationPipeline.GetAssemblies();

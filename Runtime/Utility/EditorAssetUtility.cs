@@ -1,9 +1,15 @@
 ﻿// Copyright (C) 2021-2025 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
-using System;
+#if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.Compilation;
+#endif
+
+using System;
+using System.IO;
 using UnityEngine;
+using Assembly = System.Reflection.Assembly;
 using Object = UnityEngine.Object;
 
 namespace CodeSmile
@@ -28,6 +34,23 @@ namespace CodeSmile
 			if (assetPath != null)
 				AssetDatabase.ImportAsset(assetPath);
 #endif
+		}
+
+		public static Assembly GetAssemblyForAssetPath(String assetPath)
+		{
+			Assembly assembly = null;
+
+#if UNITY_EDITOR
+			try
+			{
+				var assemblyName = CompilationPipeline.GetAssemblyNameFromScriptPath(assetPath);
+				if (assemblyName != null)
+					assembly = Assembly.Load(Path.GetFileNameWithoutExtension(assemblyName));
+			}
+			catch (Exception e) {}
+#endif
+
+			return assembly;
 		}
 	}
 }

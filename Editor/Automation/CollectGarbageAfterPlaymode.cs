@@ -5,7 +5,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmileEditor.Core
+namespace CodeSmileEditor
 {
 	internal static class CollectGarbageAfterPlaymode
 	{

@@ -6,7 +6,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmileEditor.Core
+namespace CodeSmileEditor
 {
 	[CustomPropertyDrawer(typeof(ReadOnlyFieldAttribute))]
 	public sealed class ReadOnlyFieldPropertyDrawer : PropertyDrawer

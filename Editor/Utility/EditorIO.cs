@@ -7,7 +7,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmileEditor.Core
+namespace CodeSmileEditor
 {
 	public static class EditorIO
 	{
