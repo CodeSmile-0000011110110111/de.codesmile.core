@@ -27,11 +27,14 @@ namespace CodeSmileEditor.Luny.Generator
 				{
 					var path = AssetDatabase.GUIDToAssetPath(assetGuid);
 					var asset = AssetDatabase.LoadAssetAtPath<T>(path);
+					Debug.Assert(asset != null,
+						$"asset load failed! Perhaps used after StartAssetEditing or during 'InitializeOnLoad'? Path: {path}");
+
 					m_Assets.Add(asset.name, asset);
 				}
 			}
 		}
 	}
 
-	public sealed class AssemblyDefinitionCollection : AssetCollection<AssemblyDefinitionAsset> {}
+	public sealed class AllAssemblyDefinitionAssets : AssetCollection<AssemblyDefinitionAsset> {}
 }
