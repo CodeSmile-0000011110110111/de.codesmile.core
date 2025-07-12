@@ -36,5 +36,5 @@ namespace CodeSmileEditor.Luny.Generator
 		}
 	}
 
-	public sealed class AllAssemblyDefinitionAssets : AssetCollection<AssemblyDefinitionAsset> {}
+	public sealed class AssemblyDefinitionAssets : AssetCollection<AssemblyDefinitionAsset> {}
 }
