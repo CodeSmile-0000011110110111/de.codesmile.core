@@ -2,7 +2,7 @@
   "name": "de.codesmile.core",
   "displayName": "CodeSmile Core",
   "description": "CodeSmile code library for all projects.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "unity": "2022.3",
   "unityRelease": "10f1",
   "author": {
@@ -13,7 +13,5 @@
   "changelogUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.core/tree/main/CHANGELOG.md",
   "documentationUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.core/tree/main/README.md",
   "licensesUrl": "https://github.com/CodeSmile-0000011110110111/de.codesmile.core/tree/main/LICENSE",
-  "dependencies": {
-  },
   "relatedPackages": {}
 }

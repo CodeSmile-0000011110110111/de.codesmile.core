@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,13 +15,24 @@ namespace CodeSmileEditor.Luny.Generator
 
 		public TreeNode<T> this[T t] => m_Children[t];
 		public TreeNode<T> Parent { get; private set; }
-		public TreeNode<T>[] Children => m_Children.Values.ToArray();
+		public IEnumerable<TreeNode<T>> Children => m_Children.Values;
 		public Int32 ChildCount => m_Children.Count;
 		public T Value => m_Value;
 		public TreeNode(T value) => m_Value = value;
 
+		public bool AddChild(T value)
+		{
+			if (m_Children.TryGetValue(value, out var node))
+				return false;
+
+			node = new TreeNode<T>(value) { Parent = this };
+			m_Children.Add(value, node);
+			return true;
+		}
+
 		public TreeNode<T> GetOrAddChild(T value)
 		{
+			// Returns 'this' to avoid adding T to itself.
 			if (value.Equals(m_Value))
 				return this;
 
