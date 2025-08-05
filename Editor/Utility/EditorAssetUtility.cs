@@ -16,6 +16,8 @@ namespace CodeSmileEditor
 		private static CompilationAssembly[] s_Assemblies;
 		private static readonly Int32 s_DllStringLength = ".dll".Length;
 
+		public static Boolean IsFolder(String assetPath) => AssetDatabase.IsValidFolder(assetPath);
+
 		/// <summary>
 		/// Test if the path points to a Lua script (.lua extension).
 		/// </summary>
