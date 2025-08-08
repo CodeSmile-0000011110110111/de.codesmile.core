@@ -13,13 +13,13 @@ using Object = UnityEngine.Object;
 
 namespace CodeSmile
 {
-	public static class EditorAssetUtility
+	public static class AssetUtil
 	{
 		/// <summary>
 		/// Editor-only: Imports the asset, ie to pick up latest changes without forcing an entire Refresh().
 		/// </summary>
 		/// <param name="asset"></param>
-		public static void Import(Object asset)
+		public static void IfEditorImportAsset(Object asset)
 		{
 #if UNITY_EDITOR
 			if (asset != null)
@@ -27,7 +27,7 @@ namespace CodeSmile
 #endif
 		}
 
-		public static void Import(String assetPath)
+		public static void IfEditorImportAsset(String assetPath)
 		{
 #if UNITY_EDITOR
 			if (assetPath != null)
@@ -35,7 +35,7 @@ namespace CodeSmile
 #endif
 		}
 
-		public static Assembly GetAssemblyForAssetPath(String assetPath)
+		public static Assembly IfEditorGetAssemblyForPath(String assetPath)
 		{
 			Assembly assembly = null;
 

@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace CodeSmileEditor
 {
-	public static class ResponseFile
+	public static class CscResponseFile
 	{
 		private static readonly String s_ResponseFilePath = $"{Application.dataPath}/csc.rsp";
 

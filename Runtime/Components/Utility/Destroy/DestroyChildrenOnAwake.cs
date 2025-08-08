@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components
+namespace CodeSmile.Components.Destroy
 {
 	[DisallowMultipleComponent]
 	public sealed class DestroyChildrenOnAwake : MonoBehaviour

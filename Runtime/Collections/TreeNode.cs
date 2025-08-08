@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmileEditor.Luny.Generator
+namespace CodeSmile.Collections
 {
 	public class TreeNode<T>
 	{

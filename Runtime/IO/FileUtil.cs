@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace CodeSmile
 {
-	public static class FileUtility
+	public static class FileUtil
 	{
 		public static async Task<String> TryReadAllTextAsync(String fullPath, Boolean logErrors = false)
 		{

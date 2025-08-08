@@ -8,7 +8,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace CodeSmileEditor.Luny.Generator
+namespace CodeSmileEditor
 {
 	public class AssetCollection<T> where T : Object
 	{
@@ -28,7 +28,7 @@ namespace CodeSmileEditor.Luny.Generator
 					var path = AssetDatabase.GUIDToAssetPath(assetGuid);
 					var asset = AssetDatabase.LoadAssetAtPath<T>(path);
 					Debug.Assert(asset != null,
-						$"asset load failed! Perhaps used after StartAssetEditing or during 'InitializeOnLoad'? Path: {path}");
+						$"Asset load failed! Don't use within Start/StopAssetEditing, [InitializeOnLoad], static ctor! Path: {path}");
 
 					m_Assets.Add(asset.name, asset);
 				}

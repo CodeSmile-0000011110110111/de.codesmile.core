@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace CodeSmile
 {
-	public static class PathUtility
+	public static class PathUtil
 	{
 		public static String GetRelativePath(String path) =>
 			Path.GetRelativePath(Application.dataPath, path).ToForwardSlashes();

@@ -4,7 +4,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeSmile.Components
+namespace CodeSmile.Components.Disable
 {
 	[RequireComponent(typeof(ParticleSystem))]
 	public sealed class DisableParticleSystemAfterDuration : MonoBehaviour

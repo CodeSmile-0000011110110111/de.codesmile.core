@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2021-2025 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
+using CodeSmile;
 using System;
 using System.IO;
 using UnityEditor;
@@ -11,7 +12,7 @@ using Object = UnityEngine.Object;
 
 namespace CodeSmileEditor
 {
-	public static class EditorAssetUtility
+	public static class EditorAssetUtil
 	{
 		private static CompilationAssembly[] s_Assemblies;
 		private static readonly Int32 s_DllStringLength = ".dll".Length;
@@ -75,5 +76,18 @@ namespace CodeSmileEditor
 
 		[InitializeOnLoadMethod]
 		private static void OnLoad() => s_Assemblies = CompilationPipeline.GetAssemblies();
+
+		public static void TryCreateAndImportPath(String assetPath)
+		{
+			var fullPath = Path.GetFullPath($"{Application.dataPath}/../{assetPath}");
+			if (Directory.Exists(fullPath) == false)
+			{
+				Directory.CreateDirectory(fullPath);
+				AssetDatabase.ImportAsset(assetPath);
+			}
+		}
+
+		public static String GetFullPathFromAssetPath(String assetPath) =>
+			Path.GetFullPath($"{Application.dataPath}/../{assetPath}").ToForwardSlashes();
 	}
 }
